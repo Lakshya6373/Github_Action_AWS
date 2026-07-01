@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  AWS_REGION: ap-south-01
+  AWS_REGION: ap-south-1
   ECR_REPOSITORY: github-actions-ecs-app
   ECS_CLUSTER: github-actions-cluster
   ECS_SERVICE: github-actions-service
@@ -15,8 +15,8 @@ env:
 
 permissions:
   contents: read
-  security-events: write   # needed for CodeQL / SARIF uploads
-  id-token: write           # needed for OIDC auth with AWS
+  security-events: write # needed for CodeQL / SARIF uploads
+  id-token: write # needed for OIDC auth with AWS
 
 jobs:
   # ─────────────────────────────────────────────
@@ -32,7 +32,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install Bandit
         run: pip install bandit[sarif]
@@ -64,7 +64,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install pip-audit
         run: pip install pip-audit
@@ -92,7 +92,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # full history for Gitleaks
+          fetch-depth: 0 # full history for Gitleaks
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
@@ -163,7 +163,7 @@ jobs:
           format: sarif
           output: trivy-results.sarif
           severity: HIGH,CRITICAL
-          exit-code: '0'   # warn only; change to 1 to fail pipeline
+          exit-code: "0" # warn only; change to 1 to fail pipeline
 
       - name: Upload Trivy SARIF to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
