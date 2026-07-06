@@ -190,7 +190,7 @@ aws configure
 
 Enter your AWS Access Key ID and Secret Access Key when prompted. You can create these in the AWS console under IAM → your user → Security credentials.
 
-Set the default region to `us-east-1`.
+Set the default region to `ap-south-1` (Mumbai).
 
 **Step 4 — Create the GitHub–AWS trust relationship (run once)**
 
@@ -227,8 +227,8 @@ terraform apply \
 After it finishes, you will see output like this:
 
 ```
-alb_dns_name            = "http://xxxx.us-east-1.elb.amazonaws.com"
-ecr_repository_url      = "123456789.dkr.ecr.us-east-1.amazonaws.com/..."
+alb_dns_name            = "http://xxxx.ap-south-1.elb.amazonaws.com"
+ecr_repository_url      = "123456789.dkr.ecr.ap-south-1.amazonaws.com/..."
 github_actions_role_arn = "arn:aws:iam::123456789:role/..."
 ```
 
@@ -302,7 +302,7 @@ Edit `monitoring/prometheus/prometheus.yml` and replace `YOUR_ALB_DNS_OR_LOCALHO
 
 ```yaml
 static_configs:
-  - targets: ['your-alb-dns.us-east-1.elb.amazonaws.com:80']
+  - targets: ['your-alb-dns.ap-south-1.elb.amazonaws.com:80']
 ```
 
 For local development, keep it as `localhost:5000` when running docker-compose.
