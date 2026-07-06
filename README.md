@@ -1,6 +1,6 @@
 # GitHub Actions → AWS ECS — CI/CD with Security Scanning & Monitoring
 
-A complete, production-style pipeline that takes code from your laptop to the cloud automatically — with security checks built in at every step.
+A complete, production-style pipeline that takes code from your laptop to the cloud automatically — with security checks built in at every step lets go.
 
 ---
 
